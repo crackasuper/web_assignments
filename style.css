@@ -27,3 +27,30 @@ body {
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+.buttons button {
+    font-size: 1.5em;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: gray;
+    cursor: pointer;
+    transition: background-color 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.buttons button:hover {
+    background-color: #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.buttons .operator {
+    background-color: #ff9800;
+    color: #fff;
+}
+.buttons .equals {
+    background-color: #4caf50;
+    color: #fff;
+}
