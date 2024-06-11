@@ -96,6 +96,44 @@
         currentInput = '';
         operator = value;
     }
+    function handleEquals() {
+        if (currentInput !== '' && previousInput !== '' && operator !== null) {
+            currentInput = calculate(previousInput, currentInput, operator);
+            previousInput = '';
+            operator = null;
+        } else if (previousInput === '' && operator === null) {
+            currentInput = currentInput || '0';
+        }
+    }
+
+    function clearCalculator() {
+        currentInput = '0'; // Set currentInput to '0'
+        previousInput = '';
+        operator = null;
+    }
+
+    function calculate(num1, num2, operator) {
+        const n1 = parseFloat(num1);
+        const n2 = parseFloat(num2);
+
+        switch (operator) {
+            case '+':
+                return (n1 + n2).toString();
+            case '-':
+                return (n1 - n2).toString();
+            case '*':
+                return (n1 * n2).toString();
+            case '/':
+                return (n1 / n2).toString();
+            default:
+                return '0';
+        }
+    }
+
+    function updateDisplay() {
+        display.innerText = `${previousInput} ${operator || ''} ${currentInput}`;
+    }
+});
   
 </script>
     
